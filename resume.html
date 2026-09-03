@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Resume - Onkar Pawar</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #050816;
+            color: white;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 25px 0;
+        }
+
+        .resume-container {
+            width: 90%;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        iframe {
+            width: 100%;
+            height: 700px;
+            border: none;
+            border-radius: 10px;
+            background: white;
+        }
+
+        .download-btn {
+            display: inline-block;
+            margin: 20px;
+            padding: 14px 28px;
+            background: #00d9ff;
+            color: #000;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: 0.3s ease;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-4px) scale(1.03);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>My Resume</h1>
+
+    <div class="resume-container">
+        <iframe src="resume.pdf"></iframe>
+    </div>
+
+    <a href="resume.pdf" class="download-btn" download>
+        Download Resume
+    </a>
+
+</body>
+</html>

@@ -192,3 +192,40 @@ document.querySelectorAll(".nav-links a").forEach(link => {
         menuToggle.classList.remove("active");
     });
 });
+const scrollCards = document.querySelectorAll(".reveal");
+
+const scrollObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+        }
+    });
+});
+
+scrollCards.forEach((card) => {
+    scrollObserver.observe(card);
+});
+
+/* =========================================
+   GLOBAL SCROLL REVEAL
+   ========================================= */
+
+const scrollRevealElements = document.querySelectorAll(".reveal");
+
+const scrollRevealObserver = new IntersectionObserver(
+    (entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("show");
+                scrollRevealObserver.unobserve(entry.target);
+            }
+        });
+    },
+    {
+        threshold: 0.15
+    }
+);
+
+scrollRevealElements.forEach((element) => {
+    scrollRevealObserver.observe(element);
+});

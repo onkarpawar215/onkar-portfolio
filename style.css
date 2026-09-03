@@ -909,31 +909,138 @@ footer p {
     }
 }
 
-.btn:hover,
-.project-btn:hover {
-    animation: buttonBounce 0.1s ease;
+Scroll reveal animation
+.reveal {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
-@keyframes buttonBounce {
-    0% {
-        transform: translateY(0);
-    }
-    20% {
-        transform: translateY(-4px);
-    }
-    40% {
-        transform: translateY(0);
-    }
-    60% {
-        transform: translateY(-2px);
-    }
-    80% {
-        transform: translateY(0);
-    }
-    90% {
-        transform: translateY(-1px);
-    }
-    100% {
-        transform: translateY(0);
-    }
+.reveal.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* =========================
+   PROFESSIONAL BUTTON ANIMATION
+   ========================= */
+
+.btn,
+.project-btn {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
+}
+
+/* Smooth hover */
+.btn:hover,
+.project-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.22);
+}
+
+/* Light sweep effect */
+.btn::before,
+.project-btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -120%;
+    width: 70%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.25);
+    transform: skewX(-20deg);
+    transition: left 0.5s ease;
+}
+
+/* Sweep on hover */
+.btn:hover::before,
+.project-btn:hover::before {
+    left: 140%;
+}
+
+/* Click effect — very small, no glitch */
+.btn:active,
+.project-btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.18);
+}
+
+/* Remove default focus movement */
+.btn:focus,
+.project-btn:focus {
+    outline: none;
+}
+
+/* Normal professional button animation */
+
+.btn,
+.project-btn {
+    transition: all 0.3s ease;
+}
+
+.btn:hover,
+.project-btn:hover {
+    transform: translateY(-4px) scale(1.03);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active,
+.project-btn:active {
+    transform: translateY(-1px) scale(0.99);
+}
+
+/* ===== HOME BUTTON ANIMATION ===== */
+
+.hero .buttons .btn {
+    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+    animation: none !important;
+}
+
+.hero .buttons .btn:hover {
+    transform: translateY(-4px) scale(1.03) !important;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25) !important;
+}
+
+.hero .buttons .btn:active {
+    transform: translateY(-1px) scale(0.99) !important;
+}
+
+/* =========================================
+   GLOBAL SCROLL REVEAL ANIMATION
+   ========================================= */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(45px);
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+}
+
+.reveal.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.about-card:nth-child(1),
+.project-card:nth-child(1),
+.skill-card:nth-child(1) {
+    transition-delay: 0.1s;
+}
+
+.about-card:nth-child(2),
+.project-card:nth-child(2),
+.skill-card:nth-child(2) {
+    transition-delay: 0.25s;
+}
+
+.about-card:nth-child(3),
+.project-card:nth-child(3),
+.skill-card:nth-child(3) {
+    transition-delay: 0.4s;
 }
