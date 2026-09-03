@@ -77,9 +77,30 @@ typeEffect();
    MOBILE MENU
 ========================= */
 
-const menu = document.querySelector(".menu");
-
+const menuToggle = document.querySelector(".menu-toggle");
 const navLinks = document.querySelector(".nav-links");
+
+// Your existing menu code
+menuToggle.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+    menuToggle.classList.toggle("active");
+});
+
+
+// Close mobile menu when scrolling
+window.addEventListener("scroll", () => {
+    navLinks.classList.remove("active");
+    menuToggle.classList.remove("active");
+});
+
+
+// Close mobile menu after clicking a link
+document.querySelectorAll(".nav-links a").forEach(link => {
+    link.addEventListener("click", () => {
+        navLinks.classList.remove("active");
+        menuToggle.classList.remove("active");
+    });
+});
 
 
 menu.addEventListener("click", function () {
@@ -157,3 +178,17 @@ aboutCards.forEach((card, index) => {
     card.style.transitionDelay = `${index * 0.15}s`;
 });
 navLinks.classList.toggle("active");
+
+// Close mobile menu when scrolling
+window.addEventListener("scroll", () => {
+    navLinks.classList.remove("active");
+    menuToggle.classList.remove("active");
+});
+
+// Close mobile menu when clicking a navigation link
+document.querySelectorAll(".nav-links a").forEach(link => {
+    link.addEventListener("click", () => {
+        navLinks.classList.remove("active");
+        menuToggle.classList.remove("active");
+    });
+});

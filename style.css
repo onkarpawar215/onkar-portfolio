@@ -908,3 +908,32 @@ footer p {
         scroll-behavior: auto !important;
     }
 }
+
+.btn:hover,
+.project-btn:hover {
+    animation: buttonBounce 0.1s ease;
+}
+
+@keyframes buttonBounce {
+    0% {
+        transform: translateY(0);
+    }
+    20% {
+        transform: translateY(-4px);
+    }
+    40% {
+        transform: translateY(0);
+    }
+    60% {
+        transform: translateY(-2px);
+    }
+    80% {
+        transform: translateY(0);
+    }
+    90% {
+        transform: translateY(-1px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
