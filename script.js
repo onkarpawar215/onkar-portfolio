@@ -108,3 +108,52 @@ menu.addEventListener("click", function () {
     }
 
 });
+
+/* =========================
+   SCROLL REVEAL ANIMATION
+========================= */
+
+const revealElements = document.querySelectorAll(
+    ".section-title, .education-card, .about-card, .skill, .project-card, .contact-info, form"
+);
+
+const revealObserver = new IntersectionObserver(
+    (entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("show");
+            }
+        });
+    },
+    {
+        threshold: 0.15
+    }
+);
+
+revealElements.forEach((element) => {
+    element.classList.add("reveal");
+    revealObserver.observe(element);
+});
+
+
+/* =========================
+   PROJECT CARD STAGGER
+========================= */
+
+const projectCards = document.querySelectorAll(".project-card");
+
+projectCards.forEach((card, index) => {
+    card.style.transitionDelay = `${index * 0.15}s`;
+});
+
+
+/* =========================
+   ABOUT CARD STAGGER
+========================= */
+
+const aboutCards = document.querySelectorAll(".about-card");
+
+aboutCards.forEach((card, index) => {
+    card.style.transitionDelay = `${index * 0.15}s`;
+});
+navLinks.classList.toggle("active");
